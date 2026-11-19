@@ -101,7 +101,8 @@ dsh web: http://127.0.0.1:8791/?token=xxxxxxxx
 只有想把流程**固定**到某个路由/模型时才用得到下面这个可选脚本（普通演示请忽略）：
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .epoint-demo.ps1 -Provider <路由id> -Model <模型id>
+powershell -NoProfile -ExecutionPolicy Bypass -File .
+epoint-demo.ps1 -Provider <路由id> -Model <模型id>
 ```
 
 （脚本只改流程与角色里的 `provider`/`model` 字段，知识正文不动、摘要随脚本重算；上次的 pin 记在 `demo-home/storages/.repoint-state.json`，可反复切换。）
@@ -118,6 +119,8 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .epoint-demo.ps1 -Provider 
 ## 五、五分钟演示动线（零命令，点按钮即可）
 
 演示数据里已经预置好角色、团队、流程与知识集合，**不需要输入任何命令，也不需要开终端**。
+
+> 先看工作区里的 **`00-演示任务说明.md`**：里面写了这次要做的事、三份材料、规则与验收标准（合计 494 元、押金不计入），以及预期结果的对照表。演示库只保留 4 条场景流程（报账主线 / 报账返工 / 知识库判定 / 会议纪要转行动项），平台自测用的探针流程不在演示库里。
 
 ### 主线任务：社团迎新活动预算表（约 2–4 分钟）
 

@@ -1,0 +1,40 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write packages/guard/lyagent-cancel-tree/README.md
+/:
+  en: c80db173c98209bb
+  zh: c94351e854f96c52
+/lyagent-delegated-cancellation:
+  en: 057e67e2941c4992
+  zh: 7a9724f1cf5fb57c
+/lyagent-delegated-cancellation/summary:
+  en: 522c26c5b0e44c81
+  zh: 41fba3e35569b722
+/lyagent-delegated-cancellation/table-of-contents:
+  en: d4e9596852e22009
+  zh: 7fd43008a54e27f5
+/lyagent-delegated-cancellation/use-this-package:
+  en: 0ed93798e0e26b3c
+  zh: 8fedc229ce154915
+/lyagent-delegated-cancellation/model-experience:
+  en: 215e7ba838619b7b
+  zh: a311da3843709f90
+/lyagent-delegated-cancellation/model-experience/stopped-parent-task:
+  en: 524925b8914afd76
+  zh: aa09e7e13a8dc868
+/lyagent-delegated-cancellation/model-experience/stopped-parent-task/what-the-model-sees:
+  en: e22e53193c8a6cba
+  zh: b58bde62beda74d1
+/lyagent-delegated-cancellation/model-experience/stopped-parent-task/token-effect:
+  en: c9d3de49b0f6cdd7
+  zh: 0c518a6cd88e6f03
+/lyagent-delegated-cancellation/model-experience/stopped-parent-task/kv-cache-effect:
+  en: a810907ff7978f4e
+  zh: 73bf9e372d414992
+/lyagent-delegated-cancellation/known-limitations-and-deferred-work:
+  en: 082e8013b0b959fc
+  zh: 1c52080cd4a1d626
+/lyagent-delegated-cancellation/known-limitations-and-deferred-work/dev-note:
+  en: 0a1253c6f7b5e8b9
+  zh: 9f56528562c7c914

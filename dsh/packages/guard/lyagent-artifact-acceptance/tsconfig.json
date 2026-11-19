@@ -1,0 +1,26 @@
+{
+  "extends": "../../../tsconfig.base.json",
+  "compilerOptions": { "rootDir": "src", "outDir": "lib/types" },
+  "include": ["src"],
+  "references": [
+    { "path": "../../core/session" },
+    { "path": "../../interaction/commands" },
+    { "path": "../../subagent/subagent" },
+    { "path": "../../session/session-projection" },
+    { "path": "../../team/agent-team" },
+    { "path": "../../interaction/user-approval" },
+    { "path": "../lyagent-budget" },
+    { "path": "../../context/lyagent-knowledge" },
+    { "path": "../../core/agent" },
+    { "path": "../../session/session-persistence" },
+    { "path": "../../deliverables/tool-present" },
+    { "path": "../../storage/storage-domain" },
+    { "path": "../../llm/llm" },
+    { "path": "../../../vendor/cosmokit" },
+    { "path": "../../../vendor/cordis" },
+    { "path": "../../../vendor/schemastery" },
+    { "path": "../../core/tools" },
+    { "path": "../../fs/fs" },
+    { "path": "../../session/working-directory" }
+  ]
+}

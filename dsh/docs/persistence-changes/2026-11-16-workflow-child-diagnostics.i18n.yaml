@@ -1,0 +1,28 @@
+# Bilingual-pair consistency record for 2026-11-16-workflow-child-diagnostics.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write docs/persistence-changes/2026-11-16-workflow-child-diagnostics.md
+/:
+  en: 3d5a424ae7d7e46b
+  zh: c22a8e4a62d8cc1a
+/2026-11-16-workflow-child-diagnostics:
+  en: 0f31938c78e0f38a
+  zh: e90921a80585f581
+/2026-11-16-workflow-child-diagnostics/summary:
+  en: 965b56a519868a77
+  zh: df06919fc3ca6ce7
+/2026-11-16-workflow-child-diagnostics/table-of-contents:
+  en: 6cf314a069ceb451
+  zh: 9adff678e9ecab3b
+/2026-11-16-workflow-child-diagnostics/declaration:
+  en: 6907136f28e48c90
+  zh: 02f8298485f3d8e7
+/2026-11-16-workflow-child-diagnostics/compatibility:
+  en: c89fdb9e4966781c
+  zh: b00c0cf6100e1658
+/2026-11-16-workflow-child-diagnostics/verification:
+  en: 09e2a0fbf8c1a1d7
+  zh: 1338074c72dcff5c
+/2026-11-16-workflow-child-diagnostics/dev-note:
+  en: b75c8458928b72b9
+  zh: 003ba4e17b4b5269

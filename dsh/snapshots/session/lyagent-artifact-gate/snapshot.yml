@@ -1,0 +1,10 @@
+version: 1
+scenario: lyagent-artifact-gate
+profile: headless
+composition: lyagent-artifact-gate
+recording: authored
+header:
+  class: lyagent-artifact-gate
+  pin: true
+workspace:
+  final: true

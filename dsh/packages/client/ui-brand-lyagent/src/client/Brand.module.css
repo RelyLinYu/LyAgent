@@ -1,0 +1,38 @@
+.mark {
+  display: inline-grid;
+  place-items: center;
+  font-weight: 500;
+}
+
+.settings {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  height: 32px;
+  gap: 8px;
+  padding: 6px calc(var(--dsh-sidebar-row-padding) - var(--dsh-sidebar-paint-inset));
+  border: 0;
+  border-inline: var(--dsh-sidebar-paint-inset) solid transparent;
+  box-sizing: border-box;
+  border-radius: var(--dsw-radius-md);
+  background: transparent;
+  background-clip: padding-box;
+  color: var(--dsw-alias-label-primary);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+.settings[data-collapsed='true'] {
+  width: 36px;
+  height: 36px;
+  justify-content: center;
+  gap: 0;
+  padding: 0;
+  border-inline: 0;
+  background-clip: border-box;
+}
+@media (hover: hover) {
+  .settings:hover { background-color: var(--dsw-alias-interactive-bg-hover); }
+}
+.settingsLabel { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

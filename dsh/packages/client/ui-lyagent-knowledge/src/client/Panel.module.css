@@ -1,0 +1,16 @@
+.panel { padding: 16px; min-width: 0; height: 100%; overflow: auto; color: var(--dsw-alias-label-primary); font-size: 13px; line-height: 1.5; }
+.header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 20px; }
+.header h2 { font-size: 16px; font-weight: 500; margin: 0; }
+.form { display: grid; gap: 8px; }
+.form label:not(:first-child) { margin-top: 8px; }
+.form input[type='file'] { width: 100%; min-width: 0; font: inherit; }
+.form input[type='file']::file-selector-button { padding: 6px 10px; margin-right: 8px; border: 0.5px solid var(--dsw-alias-border-l3); border-radius: var(--dsw-radius-sm); background: var(--dsw-alias-bg-layer-1); color: inherit; cursor: pointer; }
+.form > button { justify-self: start; margin-top: 8px; }
+.feedback { min-height: 24px; padding-top: 8px; color: var(--dsw-alias-label-secondary); overflow-wrap: anywhere; }
+.list { list-style: none; padding: 0; margin: 12px 0 20px; }
+.row { padding: 14px 0; border-bottom: 0.5px solid var(--dsw-alias-border-l3); }
+.row h3 { font-size: 13px; line-height: 1.5; font-weight: 500; margin: 0; overflow-wrap: anywhere; }
+.meta { color: var(--dsw-alias-label-secondary); font-size: 12px; overflow-wrap: anywhere; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; }
+.actions select { font: inherit; color: var(--dsw-alias-label-primary); background: var(--dsw-alias-bg-layer-1); border: 0.5px solid var(--dsw-alias-border-l3); border-radius: var(--dsw-radius-sm); min-height: 28px; padding: 0 8px; }
+.actions button { white-space: normal; height: auto; min-height: 28px; }

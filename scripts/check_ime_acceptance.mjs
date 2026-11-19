@@ -1,0 +1,54 @@
+import { chromium } from '../apps/web/node_modules/playwright-core/index.mjs';
+import fs from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+const out = new URL(`../artifacts/ime-acceptance/${Date.now()}/`, import.meta.url);
+await fs.mkdir(out, { recursive: true });
+const browser = await chromium.launch({ channel: 'msedge', headless: true });
+const results = [];
+try {
+  for (const width of [1440, 800, 390]) {
+    const page = await browser.newPage({ viewport: { width, height: 900 }, acceptDownloads: true });
+    const apiRequests = [], errors = [];
+    page.on('request', r => { if (new URL(r.url()).pathname.startsWith('/api/')) apiRequests.push(r.url()); });
+    page.on('pageerror', e => errors.push(e.message));
+    await page.goto(`${process.env.LYAGENT_UI_URL || 'http://127.0.0.1:5177'}/?acceptance=ime`);
+    await page.getByRole('button', { name: '开始记录', exact: true }).click();
+    const input = page.getByRole('textbox', { name: '输入法测试消息', exact: true });
+    await input.fill('中文测试');
+    await input.dispatchEvent('compositionstart', { data: '中文' });
+    await input.dispatchEvent('keydown', { key: 'Enter', code: 'Enter', isComposing: true });
+    await input.dispatchEvent('compositionend', { data: '中文测试' });
+    await input.dispatchEvent('keydown', { key: 'Enter', code: 'Enter', keyCode: 229 });
+    if (await page.getByTestId('ime-submissions').textContent() !== '[]') throw Error('Candidate confirmation submitted');
+    await input.press('Control+End');
+    await input.press('Shift+Enter');
+    const expected = await input.inputValue();
+    if (!expected.endsWith('\n')) throw Error('Missing newline');
+    if (!(await page.getByTestId('ime-newlines').textContent()).includes('当前草稿换行数：1')) throw Error('Draft newline indicator missing');
+    await input.press('Enter');
+    await input.press('Enter');
+    const submissions = JSON.parse(await page.getByTestId('ime-submissions').textContent());
+    if (submissions.length !== 1 || submissions[0] !== expected) throw Error('Wrong submission count/content');
+    await page.getByRole('button', { name: '结束记录', exact: true }).click();
+    const downloadPromise = page.waitForEvent('download');
+    await page.getByRole('button', { name: '导出记录', exact: true }).click();
+    const download = await downloadPromise;
+    const dest = new URL(`events-${width}.json`, out);
+    await download.saveAs(fileURLToPath(dest));
+    const report = JSON.parse(await fs.readFile(dest, 'utf8'));
+    if (!report.events.some(e => e.type === 'compositionstart' && !e.trusted)) throw Error('Synthetic evidence not labeled');
+    if (report.submissions.length !== 1 || report.truncated) throw Error('Invalid exported report');
+    if (report.draftNewlines !== 0 || report.submissionNewlines?.[0] !== 1) throw Error('Exported newline counts incorrect');
+    if (!(await page.getByTestId('ime-newlines').textContent()).includes('最近提交换行数：1')) throw Error('Submitted newline indicator missing');
+    if (!await input.getAttribute('readonly') && await input.getAttribute('readonly') !== '') throw Error('Recording did not stop');
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
+    if (overflow || errors.length || apiRequests.length) throw Error(JSON.stringify({ overflow, errors, apiRequests }));
+    await page.screenshot({ path: fileURLToPath(new URL(`view-${width}.png`, out)), fullPage: true });
+    await page.getByRole('button', { name: '开始记录', exact: true }).click();
+    if (await input.inputValue() !== '' || await page.getByTestId('ime-submissions').textContent() !== '[]') throw Error('Reset failed');
+    results.push({ width, compositionProtected: true, keyCode229Protected: true, newline: true, singleSubmission: true, exportResetStop: true, apiRequests, errors, overflow });
+    await page.close();
+  }
+  await fs.writeFile(new URL('report.json', out), JSON.stringify({ mode: 'synthetic-not-native-IME', results }, null, 2));
+  console.log(JSON.stringify({ out: fileURLToPath(out), results }));
+} finally { await browser.close(); }

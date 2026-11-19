@@ -1,0 +1,47 @@
+# Deployment identity only. Native runtime and user data remain unchanged.
+# Competition surface: remove DSH's account, feedback, plugin-market,
+# automation and preset-selection products while retaining the plugin runtime.
+- id: deepseek-account
+  disabled: true
+- id: llm-deepseek-account
+  disabled: true
+- id: message-feedback
+  disabled: true
+- id: ui-message-feedback
+  disabled: true
+- id: plugin-inventory
+  disabled: true
+- id: ui-plugin-manager
+  disabled: true
+- id: ui-settings-plugin-inventory
+  disabled: true
+- id: ui-settings-plugins
+  disabled: true
+- id: entry-customization
+  disabled: true
+- id: ui-agent-preset
+  disabled: true
+- id: schedule
+  disabled: true
+- id: ui-schedule
+  disabled: true
+- id: ui-settings-account
+  disabled: true
+- id: ui-account-notifications
+  disabled: true
+- id: session-log-deepseek
+  disabled: true
+- id: ui-settings-session-log
+  disabled: true
+- id: product-analytics
+  disabled: true
+- id: desktop-product-telemetry
+  disabled: true
+- id: connection
+  config:
+    allowUnauthenticatedLoopback: true
+- id: ui-brand-official
+  disabled: true
+- insert:
+    - id: ui-brand-lyagent
+      name: '@deepseek-ai/dsh-client-ui-brand-lyagent'

@@ -1,0 +1,37 @@
+# Opt-in orchestration policy, applied after lyagent.overlay.yml.
+# No provider credential or paid-test batch is configured here.
+- id: llm-retry
+  disabled: true
+- id: subagent
+  config:
+    maxActiveSubagents: 2
+    maxDepth: 1
+- id: workflow-ptc
+  config:
+    provider: spawn
+    maxConcurrentAgents: 2
+    maxTotalAgents: 8
+- insert:
+    - id: ui-lyagent-workflows
+      name: '@deepseek-ai/dsh-client-ui-lyagent-workflows'
+    - id: lyagent-workflow-library
+      name: '@deepseek-ai/dsh-lyagent-workflow-library'
+      config:
+        maxDefinitionBytes: 262144
+        maxEntries: 100
+    - id: lyagent-read-digest
+      name: '@deepseek-ai/dsh-tool-fs'
+      config:
+        read: false
+        readImage: false
+        write: false
+        edit: false
+        applyPatch: false
+        readDigest: true
+    - id: lyagent-cancel-tree
+      name: '@deepseek-ai/dsh-lyagent-cancel-tree'
+      config: {}
+    - id: lyagent-single-writer
+      name: '@deepseek-ai/dsh-lyagent-single-writer'
+      config:
+        childReadOnlyTools: [read, read_digest, glob, grep, structured_output]

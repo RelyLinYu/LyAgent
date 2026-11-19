@@ -1,0 +1,16 @@
+# Bilingual-pair consistency record for guide.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write docs/upgrade-guide/v0.2.2-rc.2/lyagent-workflow-publication/guide.md
+/:
+  en: 2ecc95f296c184c2
+  zh: dacadb4402e90015
+/lyagent-workflow-publication-and-retries:
+  en: 77a6fd9f35959bb6
+  zh: b4f4e077c01089c4
+/lyagent-workflow-publication-and-retries/change:
+  en: 072b172276578107
+  zh: 086ada21431129c1
+/lyagent-workflow-publication-and-retries/migration:
+  en: 566cfe03a896fcf3
+  zh: e59584136aa709ff

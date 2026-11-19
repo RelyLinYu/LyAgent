@@ -1,0 +1,43 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write packages/guard/lyagent-artifact-acceptance/README.md
+/:
+  en: 58629e90cf7f71d0
+  zh: b674225c1435252e
+/lyagent-mechanical-artifact-acceptance:
+  en: 4fcd1b2b09aabfc5
+  zh: 5d9cba6da37fcb90
+/lyagent-mechanical-artifact-acceptance/summary:
+  en: 2044a31a9cc8e3aa
+  zh: 585f98951b3599ba
+/lyagent-mechanical-artifact-acceptance/table-of-contents:
+  en: d4e9596852e22009
+  zh: 7fd43008a54e27f5
+/lyagent-mechanical-artifact-acceptance/use-this-package:
+  en: 0aef7f0342327d05
+  zh: 11beab4b8cb21970
+/lyagent-mechanical-artifact-acceptance/use-this-package/task-execution-and-repairs:
+  en: 75c3a6dc189be83b
+  zh: 1424a1c885303230
+/lyagent-mechanical-artifact-acceptance/model-experience:
+  en: 215e7ba838619b7b
+  zh: a311da3843709f90
+/lyagent-mechanical-artifact-acceptance/model-experience/delivery-checks:
+  en: 54562bec8e393859
+  zh: c3de26829064646b
+/lyagent-mechanical-artifact-acceptance/model-experience/delivery-checks/what-the-model-sees:
+  en: 864849c90fc01793
+  zh: afeb2ff047268b1a
+/lyagent-mechanical-artifact-acceptance/model-experience/delivery-checks/token-effect:
+  en: 7cfbe5d6faf0de05
+  zh: 57ec529f3da6dce7
+/lyagent-mechanical-artifact-acceptance/model-experience/delivery-checks/kv-cache-effect:
+  en: 49c3020d881bd66f
+  zh: d577d84e6d32a650
+/lyagent-mechanical-artifact-acceptance/known-limitations-and-deferred-work:
+  en: eebeadf7d81a588f
+  zh: 51d2e529712c4a24
+/lyagent-mechanical-artifact-acceptance/known-limitations-and-deferred-work/dev-note:
+  en: 0a1253c6f7b5e8b9
+  zh: 9f56528562c7c914

@@ -1,0 +1,31 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write packages/client/ui-lyagent-workflows/README.md
+/:
+  en: a46e8eb73c43efb6
+  zh: 591b59cf80ddc35e
+/lyagent-workflow-manager:
+  en: 08699ab98b9f39c6
+  zh: 2e7069e208831d02
+/lyagent-workflow-manager/summary:
+  en: 1079c02a1640a30a
+  zh: 3db78161b909ace5
+/lyagent-workflow-manager/table-of-contents:
+  en: d4e9596852e22009
+  zh: 7fd43008a54e27f5
+/lyagent-workflow-manager/use-this-package:
+  en: f6756c368db059a4
+  zh: 6a584a9332ff145e
+/lyagent-workflow-manager/model-experience:
+  en: 539246c26985f22f
+  zh: c4bc7dfc205e8a95
+/lyagent-workflow-manager/model-experience/kv-cache-effect:
+  en: 42e81ef6b3b7f7cc
+  zh: 2850d143c9c004b6
+/lyagent-workflow-manager/known-limitations-and-deferred-work:
+  en: 9029b8eb1a7eb50f
+  zh: 7bd94cd22fdf1b80
+/lyagent-workflow-manager/known-limitations-and-deferred-work/dev-note:
+  en: 0a1253c6f7b5e8b9
+  zh: 9f56528562c7c914

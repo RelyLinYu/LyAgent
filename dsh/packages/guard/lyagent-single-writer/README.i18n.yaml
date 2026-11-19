@@ -1,0 +1,40 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write packages/guard/lyagent-single-writer/README.md
+/:
+  en: 1aff8288f6aee9bf
+  zh: 5db02bda93a94933
+/lyagent-parent-only-effects:
+  en: 3ba0e0efb399b1c4
+  zh: 6ded7b0b03bced66
+/lyagent-parent-only-effects/summary:
+  en: d61fcd61825a7b70
+  zh: c5a126a6fd02f9be
+/lyagent-parent-only-effects/table-of-contents:
+  en: d4e9596852e22009
+  zh: 7fd43008a54e27f5
+/lyagent-parent-only-effects/use-this-package:
+  en: ec5dad1b445f0596
+  zh: 40c70200fe3b7625
+/lyagent-parent-only-effects/model-experience:
+  en: 215e7ba838619b7b
+  zh: a311da3843709f90
+/lyagent-parent-only-effects/model-experience/denied-child-operation:
+  en: 21a63a4fccb26f0e
+  zh: a9b5b6b2d92a8ae1
+/lyagent-parent-only-effects/model-experience/denied-child-operation/what-the-model-sees:
+  en: 35277d9db09bba13
+  zh: cb2574a2e8addac2
+/lyagent-parent-only-effects/model-experience/denied-child-operation/token-effect:
+  en: 7f7e6193e772d008
+  zh: 83192370c0dbf62f
+/lyagent-parent-only-effects/model-experience/denied-child-operation/kv-cache-effect:
+  en: 7e7cfe401810cc28
+  zh: cef5d716dd69dad8
+/lyagent-parent-only-effects/known-limitations-and-deferred-work:
+  en: 558e5cf8f9e8382e
+  zh: 5b8dd805e1793c45
+/lyagent-parent-only-effects/known-limitations-and-deferred-work/dev-note:
+  en: 0a1253c6f7b5e8b9
+  zh: 9f56528562c7c914

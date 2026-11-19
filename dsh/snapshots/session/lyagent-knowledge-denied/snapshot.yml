@@ -1,0 +1,8 @@
+version: 1
+scenario: lyagent-knowledge-denied
+profile: headless
+composition: lyagent-knowledge-denied
+recording: authored
+header:
+  class: lyagent-knowledge-denied
+  pin: true

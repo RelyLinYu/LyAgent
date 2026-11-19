@@ -1,0 +1,31 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write packages/client/ui-lyagent-knowledge/README.md
+/:
+  en: 864b0dbc11d94477
+  zh: 70d19d6408e153d8
+/lyagent-knowledge-panel:
+  en: 842105fda0b0f9b1
+  zh: 828e4ae159d8f298
+/lyagent-knowledge-panel/summary:
+  en: 8fb82d936e4cd79a
+  zh: b166a4cadbc2a0cb
+/lyagent-knowledge-panel/table-of-contents:
+  en: d4e9596852e22009
+  zh: 7fd43008a54e27f5
+/lyagent-knowledge-panel/use-this-package:
+  en: de3a799cab0a7255
+  zh: 5fd40be92025cecf
+/lyagent-knowledge-panel/model-experience:
+  en: eda2427eaeeb95ab
+  zh: 7bb24bf024e9fc18
+/lyagent-knowledge-panel/model-experience/kv-cache-effect:
+  en: 8aa5f6e9fdec9adf
+  zh: 7b0c413e204d91ed
+/lyagent-knowledge-panel/known-limitations-and-deferred-work:
+  en: db21da79cbccf1c7
+  zh: cc12cc057d405424
+/lyagent-knowledge-panel/known-limitations-and-deferred-work/dev-note:
+  en: 0a1253c6f7b5e8b9
+  zh: 9f56528562c7c914

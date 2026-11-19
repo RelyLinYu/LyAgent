@@ -1,0 +1,31 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write packages/guard/lyagent-budget/README.md
+/:
+  en: ceab01dbf121bc04
+  zh: 99f06ee0bd9ccf73
+/lyagent-authorization-batch-policy:
+  en: c9e59c226e7d25ce
+  zh: 3c9d2924a7179531
+/lyagent-authorization-batch-policy/summary:
+  en: 1e4da4063db5b6ff
+  zh: b6805af27557ffef
+/lyagent-authorization-batch-policy/table-of-contents:
+  en: d4e9596852e22009
+  zh: 7fd43008a54e27f5
+/lyagent-authorization-batch-policy/use-this-package:
+  en: e32228a370b6975b
+  zh: 080971d3e56791ae
+/lyagent-authorization-batch-policy/model-experience:
+  en: c6bdd1eb8446f1aa
+  zh: 843e10f2079eb5e6
+/lyagent-authorization-batch-policy/model-experience/kv-cache-effect:
+  en: c84a377724348f13
+  zh: b55f915c3e97f726
+/lyagent-authorization-batch-policy/known-limitations-and-deferred-work:
+  en: 5f7fda6e3df9e292
+  zh: aa8a16aa05193105
+/lyagent-authorization-batch-policy/known-limitations-and-deferred-work/dev-note:
+  en: 0a1253c6f7b5e8b9
+  zh: 9f56528562c7c914

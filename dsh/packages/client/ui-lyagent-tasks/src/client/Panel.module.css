@@ -1,0 +1,17 @@
+.panel { padding: 16px; min-width: 0; height: 100%; overflow: auto; color: var(--dsw-alias-label-primary); font-size: 13px; line-height: 1.5; }
+.header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 20px; }
+.header h2 { font-size: 16px; font-weight: 500; margin: 0; }
+.form { display: grid; gap: 8px; }
+.form button { justify-self: start; margin-top: 8px; }
+.feedback { min-height: 24px; padding-top: 8px; color: var(--dsw-alias-label-secondary); white-space: pre-wrap; overflow-wrap: anywhere; }
+.criteria { margin: 20px 0; }
+.criteria h3, .row h3 { font-size: 13px; font-weight: 500; margin: 0 0 8px; overflow-wrap: anywhere; }
+.criteria ul { list-style: none; padding: 0; margin: 8px 0; }
+.criteria li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; overflow-wrap: anywhere; }
+.criteria dl { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; color: var(--dsw-alias-label-secondary); }
+.criteria dd { margin: 0; font-variant-numeric: tabular-nums; }
+.list { list-style: none; padding: 0; margin: 12px 0 20px; }
+.row { padding: 14px 0; border-bottom: 0.5px solid var(--dsw-alias-border-l3); }
+.status { color: var(--dsw-alias-label-secondary); }
+.reason { margin: 8px 0 0; color: var(--dsw-alias-label-primary); white-space: pre-wrap; overflow-wrap: anywhere; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }

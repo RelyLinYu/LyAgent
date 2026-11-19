@@ -1,0 +1,19 @@
+{
+  "formatVersion": 2,
+  "roots": [
+    {"key":"event:tool-workflow/agent-end","kind":"event","event":"tool-workflow/agent-end","surface":false,"digest":"657b53ff2c972068a59d91e85ec05d6332571609971f59fa794f5329b7f1102d"}
+  ],
+  "types": [],
+  "nodes": {
+    "0657d3ca5ac4e7bf": {"kind":"primitive","type":"number"},
+    "1ebc6f9ff3aa9e3a": {"kind":"literal","value":"completed"},
+    "2142e391b9ccb60d": {"kind":"literal","value":"cancelled"},
+    "4cd48f3e5108bd6e": {"kind":"primitive","type":"string"},
+    "5d17f27a1ef9f702": {"kind":"literal","value":"tool-workflow/agent-end"},
+    "657b53ff2c972068": {"kind":"object","properties":[{"name":"data","type":"dab871501edc4c3a","optional":false},{"name":"ignorable","type":"dacf3d5f3e4ff619","optional":true},{"name":"seq","type":"0657d3ca5ac4e7bf","optional":false},{"name":"time","type":"0657d3ca5ac4e7bf","optional":false},{"name":"type","type":"5d17f27a1ef9f702","optional":false}],"indices":[]},
+    "b57a2889408de36e": {"kind":"literal","value":"failed"},
+    "c2deb7c9183735d4": {"kind":"union","types":["1ebc6f9ff3aa9e3a","2142e391b9ccb60d","b57a2889408de36e"]},
+    "dab871501edc4c3a": {"kind":"object","properties":[{"name":"error","type":"4cd48f3e5108bd6e","optional":true},{"name":"outcome","type":"c2deb7c9183735d4","optional":false},{"name":"runId","type":"4cd48f3e5108bd6e","optional":false},{"name":"seq","type":"0657d3ca5ac4e7bf","optional":false},{"name":"stopReason","type":"4cd48f3e5108bd6e","optional":true}],"indices":[]},
+    "dacf3d5f3e4ff619": {"kind":"literal","value":true}
+  }
+}

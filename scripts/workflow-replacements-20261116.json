@@ -1,0 +1,41 @@
+{
+ "format": 1,
+ "maxParallelNodes": 2,
+ "limits": {"maxDefinitionBytes":65536,"maxEntries":20,"maxCollectionBytes":20000,"maxResultBytes":4000,"maxMatches":4,"maxLineChars":200},
+ "collections": [{"id":"lyagent-replacement-rules-20261116","title":"Replacement equipment rules","version":1,"sources":[{"id":"equipment-number","title":"规则","text":"设备编号必须与资产台账一致，缺号或错号按不一致处理。"}]}],
+ "workflows": [
+  {"sourceVersion":3,"sourceSha256":"9fdfd2b33dac6e58d9c1d91ab3899a4b5f4b3f2913a041d1405471f332748589","plan":{"id":"demo-team-dag","expectedVersion":3,"description":"Reviewed replacement: team DAG (original plan unavailable)","nodes":[
+   {"id":"r1","kind":"role","team":{"id":"definition_e3347ca0-9eec-4913-bd29-00e7954aa0f5","version":2},"role":"reader1","prompt":"读取文件 甲-借用条.md，输出其中的设备与借用人。","dependsOn":[],"retry":1},
+   {"id":"r2","kind":"role","team":{"id":"definition_e3347ca0-9eec-4913-bd29-00e7954aa0f5","version":2},"role":"reader1","prompt":"读取文件 乙-资产卡.md，输出设备编号与存放位置。","dependsOn":[],"retry":1},
+   {"id":"r3","kind":"role","team":{"id":"definition_e3347ca0-9eec-4913-bd29-00e7954aa0f5","version":2},"role":"reader1","prompt":"读取文件 丙-人员表.md，输出人员所属科室与主管。","dependsOn":["r1"],"retry":1},
+   {"id":"sum","kind":"role","team":{"id":"definition_e3347ca0-9eec-4913-bd29-00e7954aa0f5","version":2},"role":"reader1","prompt":"合并上游三份结果，写 对照表3.md：设备/编号/存放位置/借用人/所属科室/主管，末尾说明优先找回哪台。","dependsOn":["r1","r2","r3"],"retry":1}
+  ]}},
+  {"sourceVersion":1,"sourceSha256":"1bbf76d15bcd213c4ff1ef9e37d5f53834fbed7f6c0b17b9c4da36eff2def893","plan":{"id":"err-probe","expectedVersion":1,"description":"Reviewed replacement: error propagation (original plan unavailable)","nodes":[
+   {"id":"a","kind":"role","team":{"id":"definition_e3347ca0-9eec-4913-bd29-00e7954aa0f5","version":2},"role":"reader1","prompt":"读甲。","dependsOn":[],"retry":1},
+   {"id":"b","kind":"role","team":{"id":"definition_e3347ca0-9eec-4913-bd29-00e7954aa0f5","version":2},"role":"reader1","prompt":"读乙。","dependsOn":[],"retry":1}
+  ]}},
+  {"sourceVersion":1,"sourceSha256":"7d3c7671028deb3e334f02b756375cb91ef552fbdb1beb38c30cc39b2cd7408c","plan":{"id":"retry-probe","expectedVersion":1,"description":"Reviewed replacement: classified retry (original plan unavailable)","nodes":[
+   {"id":"a","kind":"role","team":{"id":"definition_e3347ca0-9eec-4913-bd29-00e7954aa0f5","version":2},"role":"reader1","prompt":"读甲。","dependsOn":[],"retry":3}
+  ]}},
+  {"sourceVersion":2,"sourceSha256":"766251f8a1a31b3548cff6711458b4b8d994cca2a249df6d00576a8dbe120fba","plan":{"id":"orchestra-demo","expectedVersion":2,"description":"Reviewed replacement: orchestration (original plan unavailable)","nodes":[
+   {"id":"r1","kind":"role","team":{"id":"definition_e3347ca0-9eec-4913-bd29-00e7954aa0f5","version":2},"role":"reader1","prompt":"读甲-借用条，输出设备与借用人","dependsOn":[],"retry":2},
+   {"id":"r2","kind":"role","team":{"id":"definition_e3347ca0-9eec-4913-bd29-00e7954aa0f5","version":2},"role":"reader1","prompt":"读乙-资产卡，输出编号与位置","dependsOn":[],"retry":2},
+   {"id":"r3","kind":"role","team":{"id":"definition_e3347ca0-9eec-4913-bd29-00e7954aa0f5","version":2},"role":"reader1","prompt":"读丙-人员表，输出科室与主管","dependsOn":["r1"],"retry":2},
+   {"id":"sum","kind":"role","team":{"id":"definition_e3347ca0-9eec-4913-bd29-00e7954aa0f5","version":2},"role":"reader1","prompt":"合成六列对照表并给优先找回结论","dependsOn":["r1","r2","r3"],"retry":2}
+  ]}},
+  {"sourceVersion":2,"sourceSha256":"218056107573a2790eff3ea279b8dfcd1b3a1360e7c75dc20a8727fc1f5480f9","plan":{"id":"sched-probe","expectedVersion":2,"description":"Reviewed replacement: bounded scheduling (original plan unavailable)","nodes":[
+   {"id":"a","kind":"role","team":{"id":"definition_e3347ca0-9eec-4913-bd29-00e7954aa0f5","version":2},"role":"reader1","prompt":"读甲","dependsOn":[],"retry":2},
+   {"id":"b","kind":"role","team":{"id":"definition_e3347ca0-9eec-4913-bd29-00e7954aa0f5","version":2},"role":"reader1","prompt":"读乙","dependsOn":[],"retry":2},
+   {"id":"c","kind":"role","team":{"id":"definition_e3347ca0-9eec-4913-bd29-00e7954aa0f5","version":2},"role":"reader1","prompt":"读丙","dependsOn":[],"retry":2}
+  ]}},
+  {"sourceVersion":1,"sourceSha256":"fbf41a338e03b859784083e0b07aaaff8e47c5ec7e47dc17088497b05b1f9daf","plan":{"id":"verify-probe","expectedVersion":1,"description":"Reviewed replacement: verification (original plan unavailable)","nodes":[
+   {"id":"a","kind":"role","team":{"id":"definition_e3347ca0-9eec-4913-bd29-00e7954aa0f5","version":2},"role":"reader1","prompt":"读甲-借用条，输出设备与借用人","dependsOn":[],"retry":2},
+   {"id":"b","kind":"role","team":{"id":"definition_e3347ca0-9eec-4913-bd29-00e7954aa0f5","version":2},"role":"reader1","prompt":"读乙-资产卡，输出编号与位置","dependsOn":[],"retry":2},
+   {"id":"sum","kind":"role","team":{"id":"definition_e3347ca0-9eec-4913-bd29-00e7954aa0f5","version":2},"role":"reader1","prompt":"把上游结果合成六列表格：设备/编号/存放位置/借用人/所属科室/主管","dependsOn":["a","b"],"retry":2},
+   {"id":"gate","kind":"check","dependsOn":["sum"],"retry":1,"expect":{"mustContain":["投影仪","SC-1007"],"minLength":60}}
+  ]}},
+  {"sourceVersion":8,"sourceSha256":"8e6ba7db5f64ccfbad9e76dbe749654afcaac5af4784444f234a08063a73611d","plan":{"id":"knowledge-probe","expectedVersion":8,"description":"Reviewed replacement: knowledge rules (not equivalent to original)","nodes":[
+   {"id":"k","kind":"role","team":{"id":"definition_e3347ca0-9eec-4913-bd29-00e7954aa0f5","version":2},"role":"reader1","prompt":"按给定知识片段列出两条判定规则","dependsOn":[],"retry":1,"knowledge":{"collection":"lyagent-replacement-rules-20261116","version":1,"query":"编号"}}
+  ]}}
+ ]
+}

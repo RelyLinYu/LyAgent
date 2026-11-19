@@ -1,0 +1,12 @@
+# Explicit task-only file checks, not default task criteria.
+- insert:
+    - id: lyagent-present
+      name: '@deepseek-ai/dsh-tool-present'
+    - id: lyagent-artifact-gate
+      name: '@deepseek-ai/dsh-lyagent-artifact-acceptance'
+      config:
+        artifacts:
+          - path: result.md
+            minBytes: 1
+            maxBytes: 128
+            includes: [required]

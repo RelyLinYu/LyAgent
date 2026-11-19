@@ -1,0 +1,53 @@
+import { chromium } from '../apps/web/node_modules/playwright-core/index.mjs';
+import fs from 'node:fs/promises';
+const base = process.argv[2] || 'http://127.0.0.1:8787';
+const out = `artifacts/sidebar-management-${Date.now()}`;
+await fs.mkdir(out, { recursive: true });
+const browser = await chromium.launch({ channel: 'msedge', headless: true });
+try {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await page.goto(base);
+  const boot = await (await page.request.get(base + '/api/bootstrap')).json();
+  const headers = { 'x-lyagent-token': boot.token };
+  const created = await (await page.request.post(base + '/api/conversations', { headers })).json();
+  const other = await (await page.request.post(base + '/api/conversations', { headers })).json();
+  for (const [item, title] of [[created, 'Sidebar target'], [other, 'Sidebar untouched']]) {
+    await page.request.post(`${base}/api/conversations/${item.id}/manage`, { headers, data: { action: 'rename', title } });
+  }
+  await page.reload();
+  await page.getByRole('button', { name: 'Sidebar untouched', exact: true }).click();
+  await page.getByLabel('管理会话 Sidebar target', { exact: true }).click();
+  if (await page.getByRole('textbox', { name: '会话名称', exact: true }).count()) throw Error('Rename editor visible before action');
+  await page.getByRole('button', { name: '重命名', exact: true }).click();
+  await page.getByRole('textbox', { name: '会话名称', exact: true }).fill('Cancelled rename');
+  await page.getByRole('textbox', { name: '会话名称', exact: true }).press('Escape');
+  if (await page.getByRole('textbox', { name: '会话名称', exact: true }).count()) throw Error('Escape did not cancel rename');
+  await page.getByRole('button', { name: 'Sidebar target', exact: true }).waitFor();
+  await page.getByRole('button', { name: '重命名', exact: true }).click();
+  await page.getByRole('textbox', { name: '会话名称', exact: true }).fill('Sidebar renamed');
+  await page.getByRole('textbox', { name: '会话名称', exact: true }).press('Enter');
+  await page.getByRole('button', { name: 'Sidebar renamed', exact: true }).waitFor();
+  await page.getByRole('heading', { name: 'Sidebar untouched', exact: true }).waitFor();
+  await page.getByLabel('管理会话 Sidebar renamed', { exact: true }).click();
+  await page.screenshot({ path: out + '/desktop.png' });
+  await page.getByRole('button', { name: '归档', exact: true }).click();
+  await page.getByRole('button', { name: '已归档会话', exact: true }).click();
+  await page.getByLabel('管理会话 Sidebar renamed', { exact: true }).click();
+  await page.getByRole('button', { name: '恢复', exact: true }).click();
+  await page.getByRole('button', { name: '返回活动会话', exact: true }).click();
+  await page.getByLabel('管理会话 Sidebar renamed', { exact: true }).click();
+  page.once('dialog', dialog => dialog.dismiss());
+  await page.getByRole('button', { name: '删除', exact: true }).click();
+  await page.getByRole('button', { name: 'Sidebar renamed', exact: true }).waitFor();
+  await page.setViewportSize({ width: 800, height: 900 });
+  if (await page.getByRole('button', { name: '展开侧栏', exact: true }).isVisible()) await page.getByRole('button', { name: '展开侧栏', exact: true }).click();
+  await page.screenshot({ path: out + '/narrow.png' });
+  if (await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw Error('Horizontal overflow');
+  page.once('dialog', dialog => dialog.accept());
+  await page.getByRole('button', { name: '删除', exact: true }).click();
+  await page.getByRole('button', { name: 'Sidebar renamed', exact: true }).waitFor({ state: 'detached' });
+  const retained = await page.request.get(`${base}/api/conversations/${created.id}`);
+  if (retained.status() !== 200) throw Error('Audit history lost');
+  await page.request.post(`${base}/api/conversations/${other.id}/manage`, { headers, data: { action: 'delete' } });
+  console.log(JSON.stringify({ passed: true, out, nonSelectedRename: true, archiveRestore: true, deleteCancelAndConfirm: true, auditRetained: true }));
+} finally { await browser.close(); }

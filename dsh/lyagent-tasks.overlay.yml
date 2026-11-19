@@ -1,0 +1,4 @@
+# Optional task controls. Mount beside trusted task-specific acceptance and budget configuration.
+- insert:
+    - id: ui-lyagent-tasks
+      name: '@deepseek-ai/dsh-client-ui-lyagent-tasks'

@@ -1,0 +1,40 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write packages/context/lyagent-knowledge/README.md
+/:
+  en: 9bab29272ad0e2ff
+  zh: 740d4855c29243a4
+/lyagent-versioned-knowledge:
+  en: beef7b02459e3161
+  zh: 745020eb0d3caede
+/lyagent-versioned-knowledge/summary:
+  en: 3e1be65764f62300
+  zh: e1a59d205dc84b78
+/lyagent-versioned-knowledge/table-of-contents:
+  en: d4e9596852e22009
+  zh: 7fd43008a54e27f5
+/lyagent-versioned-knowledge/use-this-package:
+  en: 4036ab26f8b43171
+  zh: 4ed74189e8fa8d12
+/lyagent-versioned-knowledge/model-experience:
+  en: 215e7ba838619b7b
+  zh: a311da3843709f90
+/lyagent-versioned-knowledge/model-experience/knowledge-tools:
+  en: 6870d8b99f6284d3
+  zh: 258c5ef54fe33b31
+/lyagent-versioned-knowledge/model-experience/knowledge-tools/what-the-model-sees:
+  en: 7cd7d8a98b61e2d0
+  zh: bf825d855e3fd6d6
+/lyagent-versioned-knowledge/model-experience/knowledge-tools/token-effect:
+  en: 3eb9b81f06b027b8
+  zh: 745eee48ca20635c
+/lyagent-versioned-knowledge/model-experience/knowledge-tools/kv-cache-effect:
+  en: c93e53872b9bb0ba
+  zh: 7372791791a0bd5a
+/lyagent-versioned-knowledge/known-limitations-and-deferred-work:
+  en: bffbe757ec58b59f
+  zh: c155efd45e4e43f4
+/lyagent-versioned-knowledge/known-limitations-and-deferred-work/dev-note:
+  en: 0a1253c6f7b5e8b9
+  zh: 9f56528562c7c914

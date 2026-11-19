@@ -1,0 +1,11 @@
+# Optional native knowledge manager; imports never grant model access automatically.
+- insert:
+    - id: lyagent-knowledge
+      name: '@deepseek-ai/dsh-lyagent-knowledge'
+      config:
+        maxCollectionBytes: 2000000
+        maxResultBytes: 16000
+        maxMatches: 30
+        maxLineChars: 2000
+    - id: ui-lyagent-knowledge
+      name: '@deepseek-ai/dsh-client-ui-lyagent-knowledge'

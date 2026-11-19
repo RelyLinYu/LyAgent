@@ -1,0 +1,8 @@
+- insert:
+    - id: lyagent-knowledge
+      name: '@deepseek-ai/dsh-lyagent-knowledge'
+      config:
+        maxCollectionBytes: 10000
+        maxResultBytes: 2000
+        maxMatches: 4
+        maxLineChars: 200

@@ -1,0 +1,43 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write packages/workflow/lyagent-workflow-library/README.md
+/:
+  en: 9fcfbc04f73a680a
+  zh: dfe4d4f794843488
+/lyagent-saved-workflow-library:
+  en: 57d3ddec1f815a8e
+  zh: a8ec1ec8dab71320
+/lyagent-saved-workflow-library/summary:
+  en: c4bf4f1707982513
+  zh: 9b9f81f4118d7ada
+/lyagent-saved-workflow-library/table-of-contents:
+  en: b09267473a1f7626
+  zh: 122d0dd9261e7553
+/lyagent-saved-workflow-library/saved-editions:
+  en: f6d7e6b925bca292
+  zh: 9866d7d284ee0b94
+/lyagent-saved-workflow-library/dependency-plans:
+  en: 35417f8996ae6e2f
+  zh: 4c640856f620be64
+/lyagent-saved-workflow-library/model-experience:
+  en: 215e7ba838619b7b
+  zh: 215e7ba838619b7b
+/lyagent-saved-workflow-library/model-experience/saved-workflow-call-and-result:
+  en: c1f49489941ff780
+  zh: c1f49489941ff780
+/lyagent-saved-workflow-library/model-experience/saved-workflow-call-and-result/what-the-model-sees:
+  en: da6cf642bfa9fc2f
+  zh: d25b6a47b175be60
+/lyagent-saved-workflow-library/model-experience/saved-workflow-call-and-result/token-effect:
+  en: ba4fc54fa88a036e
+  zh: 3cc4860257e3557d
+/lyagent-saved-workflow-library/model-experience/saved-workflow-call-and-result/kv-cache-effect:
+  en: 5f92228b7615e190
+  zh: 9d4e9d254918a505
+/lyagent-saved-workflow-library/known-limitations-and-deferred-work:
+  en: be139d22d3e0e539
+  zh: 4b9c9838e4d979d3
+/lyagent-saved-workflow-library/known-limitations-and-deferred-work/dev-note:
+  en: 0a1253c6f7b5e8b9
+  zh: 9f56528562c7c914

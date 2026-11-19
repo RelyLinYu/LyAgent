@@ -1,11 +1,11 @@
 {
  "upstreamCommit": "e8f7b93a344964de3dca1ace9e72b6e4d6de87cb",
- "created": "2026-11-18T20:59:11.075871Z",
+ "created": "2026-11-19T01:17:58.240196Z",
  "kind": "source-candidate",
  "files": [
   {
    "path": "README.md",
-   "sha256": "c25a2807083ac3048ea06cf33ecc8918d4f439e85e28074db6e62fe75d5c338c"
+   "sha256": "f1ab0993fc047ddd4d54b538c34f6457c3ca18eaaad37c8277707cce86482acc"
   },
   {
    "path": "dsh/.editorconfig",
@@ -74429,7 +74429,7 @@
   },
   {
    "path": "dsh/packages/workflow/lyagent-workflow-library/src/plan.ts",
-   "sha256": "b6c17b9af886852969ef6660b65bf02e576e5b38020497a598abd7ba66e30359"
+   "sha256": "b0ba250dc16cd489aa71563e07206d07a6e473cdb1f69a66282b80832cb59e4f"
   },
   {
    "path": "dsh/packages/workflow/lyagent-workflow-library/src/publication.ts",
@@ -74445,7 +74445,7 @@
   },
   {
    "path": "dsh/packages/workflow/lyagent-workflow-library/src/team.ts",
-   "sha256": "a77583a8339bff77085e9bf33f7a7fcf8bff4a05705925f0d2971566c303deca"
+   "sha256": "ceafe850b1777952f32ebe43c8e66dff6dc0ee1a4daa9669f0a86cc136ba44d4"
   },
   {
    "path": "dsh/packages/workflow/lyagent-workflow-library/tests/guards.spec.ts",

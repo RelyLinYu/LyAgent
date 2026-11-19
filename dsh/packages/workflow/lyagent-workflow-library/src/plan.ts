@@ -166,6 +166,7 @@ export function compilePlan(input: z.infer<typeof planPublicationSchema>, read: 
       const dependencies = `Object.fromEntries(${JSON.stringify(entry.dependsOn)}.map(id => [id, __results[id]]))`
       let expression: string
       switch (entry.kind) {
+        // profile 的 provider/model 为空 = 继承会话所选模型（评委配置自己的模型后流程直接可用）。
         case 'role': {
           if (readTeam === undefined) throw new WorkflowLibraryError('Role nodes require a team library.')
           const team = readTeam(entry.team.id, entry.team.version).definition
@@ -176,7 +177,7 @@ export function compilePlan(input: z.infer<typeof planPublicationSchema>, read: 
           if (profile.kind !== 'profile' || !profile.enabled) throw new WorkflowLibraryError('The pinned role profile is unavailable or disabled.')
           const excerpt = entry.knowledge === undefined || searchKnowledge === undefined ? ''
             : knowledgeBlock(searchKnowledge(entry.knowledge.collection, entry.knowledge.version, entry.knowledge.query))
-          expression = `await agent(__feedback(attempt, lastError) + __reworkNote(${id}) + ${JSON.stringify(`${excerpt}${profile.instructions}\n\nTask: ${entry.prompt}\nPinned team: ${entry.team.id}:${entry.team.version}; role: ${entry.role}; profile: ${member.profile.id}:${member.profile.version}`)} + '\\nDependencies: ' + JSON.stringify(${dependencies}), ${JSON.stringify({ provider: profile.provider, model: profile.model, label: `${entry.id} · ${entry.prompt.slice(0, 18)}` })})`
+          expression = `await agent(__feedback(attempt, lastError) + __reworkNote(${id}) + ${JSON.stringify(`${excerpt}${profile.instructions}\n\nTask: ${entry.prompt}\nPinned team: ${entry.team.id}:${entry.team.version}; role: ${entry.role}; profile: ${member.profile.id}:${member.profile.version}`)} + '\\nDependencies: ' + JSON.stringify(${dependencies}), ${JSON.stringify({ ...(profile.provider === '' ? {} : { provider: profile.provider }), ...(profile.model === '' ? {} : { model: profile.model }), label: `${entry.id} · ${entry.prompt.slice(0, 18)}` })})`
           break
         }
         case 'agent': {

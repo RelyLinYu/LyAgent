@@ -94,17 +94,17 @@ dsh web: http://127.0.0.1:8791/?token=xxxxxxxx
 2. 填四项：**路由 id**（自定义，例如 `qwen`）、**协议**（OpenAI 兼容）、**baseURL**、**模型 id**（例如 `qwen-max`）、**API Key**；
 3. 保存后回到对话页，在模型下拉里选刚加的模型。
 
-### 用非 DeepSeek 模型时，先改演示流程的指向
+### 用非 DeepSeek 模型时（默认已经不需要额外操作）
 
-演示流程里写死了 `deepseek-official` / `deepseek-flash`。用自己的模型时，先执行一次：
+演示角色的 `provider`/`model` 已置空，含义是**继承你在界面里所选的那个模型**：配置好任意供应商与模型后，流程直接可用，不需要改代码、不需要敲命令。
+
+只有想把流程**固定**到某个路由/模型时才用得到下面这个可选脚本（普通演示请忽略）：
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\repoint-demo.ps1 -Provider qwen -Model qwen-max
+powershell -NoProfile -ExecutionPolicy Bypass -File .epoint-demo.ps1 -Provider <路由id> -Model <模型id>
 ```
 
-（`-Provider` 填你在设置里写的路由 id，`-Model` 填模型 id；脚本只改流程与角色里的 `provider`/`model` 字段（知识正文不动、摘要随脚本重算），并把上次的 pin 记在 `demo-home/storages/.repoint-state.json`，因此**可以反复切换模型**。）
-
-之后照常 `start-demo.ps1` 启动即可。
+（脚本只改流程与角色里的 `provider`/`model` 字段，知识正文不动、摘要随脚本重算；上次的 pin 记在 `demo-home/storages/.repoint-state.json`，可反复切换。）
 
 **未配置模型时**：界面可浏览、可看流程库，但发送按钮是禁用的（提示"请选择模型"），命令发不出去。
 

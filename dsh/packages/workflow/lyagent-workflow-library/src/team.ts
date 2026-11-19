@@ -7,8 +7,8 @@ import { WorkflowLibraryError } from './store.ts'
 const identity = z.string().regex(/^[a-zA-Z0-9_-]{1,80}$/)
 const pin = z.object({ id: identity, version: z.number().int().positive() }).strict()
 const profile = z.object({ kind: z.literal('profile'), description: z.string().trim().min(1).max(1000),
-  instructions: z.string().trim().min(1).max(16000), provider: z.string().trim().min(1).max(200),
-  model: z.string().trim().min(1).max(200), enabled: z.boolean() }).strict()
+  instructions: z.string().trim().min(1).max(16000), provider: z.string().trim().max(200).default(''),
+  model: z.string().trim().max(200).default(''), enabled: z.boolean() }).strict()
 const team = z.object({ kind: z.literal('team'), description: z.string().trim().min(1).max(1000),
   members: z.array(z.object({ role: identity, profile: pin }).strict()).min(1).max(32) }).strict()
 const definition = z.discriminatedUnion('kind', [profile, team])
